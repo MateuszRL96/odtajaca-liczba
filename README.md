@@ -16,8 +16,8 @@ Aplikacja służy do wykrywania wartości odstającej w tablicy liczb całkowity
 1. Skopiuj repozytorium:
 
    ```bash
-   git clone (https://github.com/MateuszRL96/odtajaca-liczba)
-   cd twoje_repozytorium
+   git clone https://github.com/MateuszRL96/odtajaca-liczba
+   cd odtajaca-liczba
 
    
 Zainstaluj zależności:
