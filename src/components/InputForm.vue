@@ -32,25 +32,15 @@ export default {
       const odd = nums.filter((n) => n % 2 !== 0);
       const even = nums.filter((n) => n % 2 === 0);
 
-      let outlier = ""; // Domyślna wartość
-
-      // Sprawdzenie, czy jest odstająca liczba
-      if (odd.length === 0) {
-        outlier = even[0]; // Przypadek: wszystkie parzyste, zwracamy pierwszą parzystą
-      } else if (even.length === 0) {
-        outlier = odd[0]; // Przypadek: wszystkie nieparzyste, zwracamy pierwszą nieparzystą
-      } else if (odd.length === 1) {
-        outlier = odd[0]; // Przypadek: jedna nieparzysta
-      } else {
-        outlier = even[0]; // Przypadek: jedna parzysta
+      if (odd.length === nums.length || even.length === nums.length) {
+        alert(
+          "Nie znaleziono liczby odstającej. Wszystkie liczby są parzyste lub nieparzyste."
+        );
+        return;
       }
+      const outlier = odd.length === 1 ? odd[0] : even[0];
 
-      // Przekazujemy parametr outlier i komunikat
-      const message =
-        odd.length === 1 || even.length === 1
-          ? ""
-          : "Nie ma odstającej liczby.";
-      this.$router.push({ name: "ResultView", params: { outlier, message } });
+      this.$router.push({ name: "ResultView", params: { outlier } });
     },
   },
 };
@@ -76,7 +66,7 @@ export default {
 }
 
 input {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   font-size: 1.2rem;
   margin-bottom: 20px;
